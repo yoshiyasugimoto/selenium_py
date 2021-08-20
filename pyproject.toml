@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "helium_py"
+name = "selenium_py"
 version = "0.1.0"
 description = ""
 authors = ["yoshiyasugimoto"]
