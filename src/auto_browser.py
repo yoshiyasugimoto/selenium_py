@@ -13,12 +13,12 @@ driver = webdriver.Chrome(executable_path=os.environ.get("chrome_driver_path"),o
 URL = os.getenv("access", "https://github.com")
 driver.get(URL)
 time.sleep(5)
-messageBody1 = driver.find_element_by_id("messageBody")
-messageBody2 = driver.find_element_by_id("messageBody")
-messageBody3 = driver.find_element_by_id("messageBody")
-breakpoint()
-# password = driver.find_element_by_name('password')
-# send_password = password.send_keys(os.environ.get("password"))
 
-# sign_in = driver.find_element_by_id("idSIButton9")
-# sign_in.click()
+if "teams" not in os.getenv("access"):
+    driver.close()
+
+message_body = driver.find_elements_by_class_name('message-body')
+if message_body:
+    for i in message_body:
+        print(i.text)
+    driver.close()
