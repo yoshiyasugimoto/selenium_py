@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 
 import datetime
 import os 
@@ -26,6 +27,9 @@ if "teams" not in os.getenv("access"):
 
 if "https://login.live.com/" in driver.current_url:
     print("Login in")
+    passwd = driver.find_element_by_id("passwd")
+    passwd.send_keys(os.getenv("ms_password"))
+    passwd.send_keys(Keys.ENTER)
     breakpoint()
     
 
